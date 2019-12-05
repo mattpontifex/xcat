@@ -10,4 +10,5 @@ Column 5 corresponds to the Reaction Time Latency
 
 Installation
 ------------
-
+To use these functions, click the "Clone or download" button on the right and then select "Download ZIP".
+Once the file has downloaded, unzip the package and then place the xcat.py file within the appropriate directory for the project.
