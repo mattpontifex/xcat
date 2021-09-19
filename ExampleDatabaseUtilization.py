@@ -21,6 +21,7 @@ databasefilout = 'BehavioralDatabase.dat'
 
 # Populate database with variable labels
 newvarlabels = ['PartID']
+taskprocessing = xcat.BehavioralAnalysis()
 varlabelshort = ['totaltrials', 'meanrt', 'medianrt', 'sdrt', 'cvrt', 'responseaccuracy', 'inverseefficiency', 'totalerrors', 'totalcommissionerrors', 'totalomissionerrors', 'totalimpulsiveerrors', 'totaldelayederrors']
 varlabelsfull = ['totaltrials', 'meanrt', 'medianrt', 'sdrt', 'cvrt', 'responseaccuracy', 'inverseefficiency', 'totalerrors', 'totalcommissionerrors', 'totalomissionerrors', 'totalimpulsiveerrors', 'totaldelayederrors', 'correctruns', 'correctdist', 'commissionerrorruns', 'commissionerrordist', 'omissionerrorruns', 'omissionerrordist', 'impulsiveerrorruns', 'impulsiveerrordist', 'delayederrorruns', 'delayederrordist', 'errorlatency', 'errorlatencysd', 'matchcorrectlatency', 'matchcorrectlatencysd', 'posterroraccuracy', 'postmatchcorrectaccuacy', 'posterrorlatency', 'postmatchcorrectlatency']
 
@@ -97,6 +98,9 @@ for study in ['ID']: # Establish loop settings for study prefix and participant 
         f.write('\n') # Write end of line character 
         f.close() # Close file
 
-os.remove(os.path.realpath(__file__)[0:-2] + 'pyc') # Remove compiled python file
-xcat.cleanupcompiledfiles()
+try:
+    os.remove(os.path.realpath(__file__)[0:-2] + 'pyc') # Remove compiled python file
+    xcat.cleanupcompiledfiles()
+except:
+    pass
 print('Processing Complete')
