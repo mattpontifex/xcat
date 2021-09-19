@@ -22,8 +22,8 @@ databasefilout = 'BehavioralDatabase.dat'
 # Populate database with variable labels
 newvarlabels = ['PartID']
 taskprocessing = xcat.BehavioralAnalysis()
-varlabelshort = ['totaltrials', 'meanrt', 'medianrt', 'sdrt', 'cvrt', 'responseaccuracy', 'inverseefficiency', 'totalerrors', 'totalcommissionerrors', 'totalomissionerrors', 'totalimpulsiveerrors', 'totaldelayederrors']
-varlabelsfull = ['totaltrials', 'meanrt', 'medianrt', 'sdrt', 'cvrt', 'responseaccuracy', 'inverseefficiency', 'totalerrors', 'totalcommissionerrors', 'totalomissionerrors', 'totalimpulsiveerrors', 'totaldelayederrors', 'correctruns', 'correctdist', 'commissionerrorruns', 'commissionerrordist', 'omissionerrorruns', 'omissionerrordist', 'impulsiveerrorruns', 'impulsiveerrordist', 'delayederrorruns', 'delayederrordist', 'errorlatency', 'errorlatencysd', 'matchcorrectlatency', 'matchcorrectlatencysd', 'posterroraccuracy', 'postmatchcorrectaccuacy', 'posterrorlatency', 'postmatchcorrectlatency']
+varlabelshort = taskprocessing.shortoutputlabels
+varlabelsfull = taskprocessing.fulloutputlabels
 
 # Loop through each condition
 for condition in ['A1']:
@@ -44,7 +44,7 @@ for condition in ['A1']:
 f = open(databasefilout, 'w') # Write Variable Labels to Database - Any original file is overwritten
 for i in newvarlabels:
     f.write(i)   # Write variable to file
-    if (i != newvarlabels[-1]): f.write('\t') # Insert Tab between each variable
+    if (i != newvarlabels[-1]): f.write(', ') # Insert comma between each variable
 f.write('\n') # Write end of line character
 f.close() # close file 
 
@@ -94,7 +94,7 @@ for study in ['ID']: # Establish loop settings for study prefix and participant 
         f = open(databasefilout, 'a') # Open external database file - set to append
         for i in range(0,len(outputdata)): # Loop through all items in the outputdata list
             f.write(str(outputdata[i])) # Write data as a string to file
-            if (i != len(outputdata)): f.write('\t') # Include Tab between each item
+            if (i != len(outputdata)): f.write(', ') # Include comma between each item
         f.write('\n') # Write end of line character 
         f.close() # Close file
 
