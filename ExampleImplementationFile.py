@@ -15,6 +15,9 @@ print(taskoutput.shortoutput)
 print('\nSpecific Behavioral Variable')
 print(taskoutput.meanrt)
 
-os.remove(os.path.realpath(__file__)[0:-2] + 'pyc') # Remove compiled python file
-xcat.cleanupcompiledfiles()
+try:
+  os.remove(os.path.realpath(__file__)[0:-2] + 'pyc') # Remove compiled python file
+  xcat.cleanupcompiledfiles()
+except:
+  pass
 print('Processing Complete')
